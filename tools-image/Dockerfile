@@ -3,7 +3,7 @@ ARG LEAP_VERSION=15.5
 ARG LUET_VERSION=0.34.0
 FROM quay.io/luet/base:$LUET_VERSION AS luet
 
-FROM golang:1.20 as enki
+FROM golang:1.21 as enki
 ENV CGO_ENABLED=0
 COPY ./enki /src/enki
 WORKDIR /src/enki
