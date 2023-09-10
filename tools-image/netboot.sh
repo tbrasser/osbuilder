@@ -5,6 +5,8 @@ ISO=$1
 OUTPUT_NAME=$2
 ARTIFACT_NAME=$(basename $OUTPUT_NAME)
 
+while [ ! -f $ISO ]; do sleep 1; done
+
 isoinfo -x /rootfs.squashfs -R -i $ISO > $OUTPUT_NAME.squashfs
 isoinfo -x /boot/kernel -R -i $ISO > $OUTPUT_NAME-kernel
 isoinfo -x /boot/initrd -R -i $ISO > $OUTPUT_NAME-initrd
